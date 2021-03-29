@@ -1,17 +1,18 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 class SearchPage extends Component {
   render() {
     return (
-      // <div className="">
-      //   <input type="text" placeholder="Search by title or author" />
-      // </div>
       <div className="search-books">
         <div className="search-books-bar">
-          <button className="close-search">Close</button>
-          <div>
+          <Link to="/">
+            <button className="close-search">Close</button>
+          </Link>
+
+          <form>
             <input type="text" placeholder="Search by author or title" />
-          </div>
+          </form>
         </div>
         <div className="search-books-results">
           <ol className="books-grid" />

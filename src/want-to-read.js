@@ -14,7 +14,7 @@ class WantToRead extends Component {
           <ol className="books-grid">
             <li>
               <Book />
-            </li>{' '}
+            </li>
             <li>
               <Book />
             </li>

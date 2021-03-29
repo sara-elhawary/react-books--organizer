@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import CurrentlyReading from './currently-reading'
 import WantToRead from './want-to-read'
 import Read from './read'
+import { Link } from 'react-router-dom'
 
 class BookShelves extends Component {
   render() {
@@ -16,9 +17,9 @@ class BookShelves extends Component {
           <Read />
         </div>
         <div className="open-search">
-          <button onClick={() => this.setState({ showSearchPage: true })}>
-            Add a book
-          </button>
+          <Link to="/search">
+            <button>Add a book</button>
+          </Link>
         </div>
       </div>
     )
