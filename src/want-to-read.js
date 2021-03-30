@@ -12,12 +12,12 @@ class WantToRead extends Component {
         <h2 className="bookshelf-title">Want to Read</h2>
         <div className="bookshelf-books">
           <ol className="books-grid">
-            <li>
-              <Book />
-            </li>
-            <li>
-              <Book />
-            </li>
+            {books.length > 0 &&
+              books.map((book, index) => (
+                <li key={index + book.title}>
+                  <Book {...book} />
+                </li>
+              ))}
           </ol>
         </div>
       </div>

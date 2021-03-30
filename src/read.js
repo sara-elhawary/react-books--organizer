@@ -2,9 +2,6 @@ import React, { Component } from 'react'
 import Book from './book'
 
 class Read extends Component {
-  state = {
-    books: [],
-  }
   render() {
     const { books } = this.state
     return (
@@ -12,12 +9,12 @@ class Read extends Component {
         <h2 className="bookshelf-title">Read</h2>
         <div className="bookshelf-books">
           <ol className="books-grid">
-            <li>
-              <Book />
-            </li>{' '}
-            <li>
-              <Book />
-            </li>
+            {books.length > 0 &&
+              books.map((book, index) => (
+                <li key={index + book.title}>
+                  <Book {...book} />
+                </li>
+              ))}
           </ol>
         </div>
       </div>

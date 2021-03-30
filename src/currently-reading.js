@@ -12,7 +12,7 @@ class CurrentlyReading extends Component {
             {books.length > 0 &&
               books.map((book, index) => (
                 <li key={index + book.title}>
-                  <Book {...book} />
+                  <Book {...book} authors={book.authors.join(', ')} />
                 </li>
               ))}
           </ol>

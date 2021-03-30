@@ -14,8 +14,8 @@ class BookShelves extends Component {
         </div>
         <div className="list-books-content">
           <CurrentlyReading books={books.currentlyReading} />
-          {/* <WantToRead />
-          <Read /> */}
+          <WantToRead books={books.wantToRead} />
+          <Read books={books.read} />
         </div>
         <div className="open-search">
           <Link to="/search">
