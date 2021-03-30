@@ -1,7 +1,31 @@
 import React, { Component } from 'react'
 
 class Book extends Component {
+  state = {
+    bookShelf: '',
+  }
+  handleSelect = (e) => {
+    // console.log('clicked')
+    const shelf = e.target.value
+    this.setState({ bookShelf: shelf })
+    console.log(shelf)
+    const data = {
+      bookDetails: {
+        title: this.props.title,
+        authors: this.props.authors,
+        imageURL: this.props.imageURL,
+      },
+      bookShelf: shelf,
+    }
+    console.log(data)
+    this.props.getData(data)
+  }
+
   render() {
+    // console.log(this.state.bookShelf)
+    // console.log(this.state.bookDetails)
+
+    const { title, authors, imageURL } = this.props
     return (
       <div>
         <div className="book">
@@ -11,26 +35,22 @@ class Book extends Component {
               style={{
                 width: 128,
                 height: 193,
-                backgroundImage:
-                  'url("http://books.google.com/books/content?id=PGR2AwAAQBAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE73-GnPVEyb7MOCxDzOYF1PTQRuf6nCss9LMNOSWBpxBrz8Pm2_mFtWMMg_Y1dx92HT7cUoQBeSWjs3oEztBVhUeDFQX6-tWlWz1-feexS0mlJPjotcwFqAg6hBYDXuK_bkyHD-y&source=gbs_api")',
+                backgroundImage: `url(${imageURL})`,
               }}
             />
             <div className="book-shelf-changer">
-              <select>
-                <option value="move" disabled>
+              <select onChange={this.handleSelect} defaultValue="">
+                <option value="" disabled>
                   Move to...
                 </option>
                 <option value="currentlyReading">Currently Reading</option>
                 <option value="wantToRead">Want to Read</option>
-                <option selected value="read">
-                  Read
-                </option>
-                <option value="none">None</option>
+                <option value="read">Read</option>
               </select>
             </div>
           </div>
-          <div className="book-title">To Kill a Mockingbird</div>
-          <div className="book-authors">Harper Lee</div>
+          <div className="book-title">{title}</div>
+          <div className="book-authors">{authors}</div>
         </div>
       </div>
     )

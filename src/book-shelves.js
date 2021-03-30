@@ -6,15 +6,16 @@ import { Link } from 'react-router-dom'
 
 class BookShelves extends Component {
   render() {
+    const { books } = this.props
     return (
       <div>
         <div className="list-books-title">
           <h1>MyReads</h1>
         </div>
         <div className="list-books-content">
-          <CurrentlyReading />
-          <WantToRead />
-          <Read />
+          <CurrentlyReading books={books.currentlyReading} />
+          {/* <WantToRead />
+          <Read /> */}
         </div>
         <div className="open-search">
           <Link to="/search">

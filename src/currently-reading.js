@@ -2,25 +2,19 @@ import React, { Component } from 'react'
 import Book from './book'
 
 class CurrentlyReading extends Component {
-  state = {
-    books: [],
-  }
   render() {
-    const { books } = this.state
+    const { books } = this.props
     return (
       <div className="bookshelf">
         <h2 className="bookshelf-title">Currently Reading</h2>
         <div className="bookshelf-books">
           <ol className="books-grid">
-            <li>
-              <Book />
-            </li>
-            <li>
-              <Book />
-            </li>
-            <li>
-              <Book />
-            </li>
+            {books.length > 0 &&
+              books.map((book, index) => (
+                <li key={index + book.title}>
+                  <Book {...book} />
+                </li>
+              ))}
           </ol>
         </div>
       </div>
