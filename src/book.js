@@ -8,7 +8,7 @@ class Book extends Component {
     // console.log('clicked')
     const shelf = e.target.value
     this.setState({ bookShelf: shelf })
-    console.log(shelf)
+    // console.log(shelf)
     const data = {
       bookDetails: {
         title: this.props.title,
@@ -17,7 +17,7 @@ class Book extends Component {
       },
       bookShelf: shelf,
     }
-    console.log(data)
+    // console.log(data)
     this.props.getData(data)
   }
 
@@ -50,7 +50,7 @@ class Book extends Component {
             </div>
           </div>
           <div className="book-title">{title}</div>
-          <div className="book-authors">{authors}</div>
+          <div className="book-authors">{authors && authors.join(', ')}</div>
         </div>
       </div>
     )

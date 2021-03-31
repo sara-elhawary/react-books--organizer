@@ -1,18 +1,22 @@
 import React, { Component } from 'react'
 import Book from './book'
 
-class CurrentlyReading extends Component {
+class BookCategory extends Component {
+  getUserSelection = (details) => {
+    this.props.changeBooks(details)
+  }
+
   render() {
-    const { books } = this.props
+    const { books, title } = this.props
     return (
       <div className="bookshelf">
-        <h2 className="bookshelf-title">Currently Reading</h2>
+        <h2 className="bookshelf-title">{title}</h2>
         <div className="bookshelf-books">
           <ol className="books-grid">
             {books.length > 0 &&
               books.map((book, index) => (
                 <li key={index + book.title}>
-                  <Book {...book} />
+                  <Book {...book} getData={this.getUserSelection} />
                 </li>
               ))}
           </ol>
@@ -22,4 +26,4 @@ class CurrentlyReading extends Component {
   }
 }
 
-export default CurrentlyReading
+export default BookCategory

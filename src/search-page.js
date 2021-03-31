@@ -9,7 +9,7 @@ class SearchPage extends Component {
     result: [],
   }
   getUserSelection = (details) => {
-    console.log('details', details)
+    // console.log('details', details)
     this.props.stackBooks(details)
   }
   updateQuery = (userInput) => {
@@ -18,9 +18,7 @@ class SearchPage extends Component {
     }))
 
     BooksAPI.search(userInput).then((result) => {
-      this.setState(() => ({
-        result,
-      }))
+      this.setState({ result })
       // console.log(result)
       // console.log('authors', result[0].authors)
       // console.log('image', result[0].imageLinks.smallThumbnail)
@@ -29,7 +27,7 @@ class SearchPage extends Component {
   }
   render() {
     const { query, result } = this.state
-    console.log(this.state.selection)
+    // console.log(this.state.selection)
     return (
       <div className="search-books">
         <div className="search-books-bar">
@@ -47,13 +45,13 @@ class SearchPage extends Component {
         </div>
         <div className="search-books-results">
           <ol className="books-grid">
-            {result.length > 0 ? (
+            {result && result.length > 0 ? (
               result.map((book, index) => (
                 <Book
                   key={`${index}+${book.title}`}
                   title={book.title}
                   authors={book.authors}
-                  imageURL={book.imageLinks.thumbnail}
+                  imageURL={book.imageLinks && book.imageLinks.thumbnail}
                   getData={this.getUserSelection}
                 />
               ))
