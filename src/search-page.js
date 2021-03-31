@@ -47,15 +47,19 @@ class SearchPage extends Component {
         </div>
         <div className="search-books-results">
           <ol className="books-grid">
-            {result.map((book, index) => (
-              <Book
-                key={`${index}+${book.title}`}
-                imageURL={book.imageLinks.smallThumbnail}
-                authors={book.authors}
-                title={book.title}
-                getData={this.getUserSelection}
-              />
-            ))}
+            {result.length > 0 ? (
+              result.map((book, index) => (
+                <Book
+                  key={`${index}+${book.title}`}
+                  title={book.title}
+                  authors={book.authors}
+                  imageURL={book.imageLinks.thumbnail}
+                  getData={this.getUserSelection}
+                />
+              ))
+            ) : (
+              <div>no result</div>
+            )}
           </ol>
         </div>
       </div>

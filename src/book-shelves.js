@@ -10,7 +10,7 @@ class BookShelves extends Component {
     return (
       <div>
         <div className="list-books-title">
-          <h1>MyReads</h1>
+          <h1>Books' Organizer</h1>
         </div>
         <div className="list-books-content">
           <CurrentlyReading books={books.currentlyReading} />

@@ -3,7 +3,7 @@ import Book from './book'
 
 class Read extends Component {
   render() {
-    const { books } = this.state
+    const { books } = this.props
     return (
       <div className="bookshelf">
         <h2 className="bookshelf-title">Read</h2>
