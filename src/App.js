@@ -11,7 +11,6 @@ class App extends Component {
     read: [],
   }
   handleShelves = (data) => {
-    console.log(data.bookDetails)
     this.setState((prevState) => ({
       [data.bookShelf]: [...prevState[data.bookShelf], data.bookDetails],
     }))
@@ -31,14 +30,6 @@ class App extends Component {
           exact
           path="/search"
           render={() => <SearchPage stackBooks={this.handleShelves} />}
-          // render={({ history }) => (
-          //   <SearchPage
-          //     stackBooks={() => {
-          //       this.handleShelves()
-          //       history.push('/')
-          //     }}
-          //   />
-          // )}
         />
       </div>
     )

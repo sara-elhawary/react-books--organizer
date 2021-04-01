@@ -16,11 +16,11 @@ class Book extends Component {
         title: this.props.title,
         authors: this.props.authors,
         imageURL: this.props.imageURL,
-        bookShelf: this.props.shelf,
+        // bookShelf: this.props.shelf,
       },
       // fromShelf:
     }
-    // console.log(data)
+    console.log(data)
     this.props.getData(data)
   }
 
