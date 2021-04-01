@@ -2,30 +2,34 @@ import React, { Component } from 'react'
 
 class Book extends Component {
   state = {
-    bookShelf: '',
+    bookShelf: 'none',
   }
+  // getPrevValue = (e) => {
+  //   console.log(e.target)
+  // }
   handleSelect = (e) => {
-    // console.log('clicked')
     const shelf = e.target.value
+    // const fromShelf=e.
     this.setState({ bookShelf: shelf })
-    // console.log(shelf)
     const data = {
       bookDetails: {
         title: this.props.title,
         authors: this.props.authors,
         imageURL: this.props.imageURL,
+        bookShelf: this.props.shelf,
       },
-      bookShelf: shelf,
+      // fromShelf:
     }
     // console.log(data)
     this.props.getData(data)
   }
 
   render() {
-    // console.log(this.state.bookShelf)
+    console.log(this.state.bookShelf)
     // console.log(this.state.bookDetails)
 
-    const { title, authors, imageURL } = this.props
+    const { title, authors, imageURL, bookShelf } = this.props
+
     return (
       <div>
         <div className="book">
@@ -39,13 +43,18 @@ class Book extends Component {
               }}
             />
             <div className="book-shelf-changer">
-              <select onChange={this.handleSelect} defaultValue="">
+              <select
+                // value={bookShelf}
+                // onFocus={this.getPrevValue}
+                onChange={this.handleSelect}
+              >
                 <option value="" disabled>
                   Move to...
                 </option>
                 <option value="currentlyReading">Currently Reading</option>
                 <option value="wantToRead">Want to Read</option>
                 <option value="read">Read</option>
+                <option value="none">None</option>
               </select>
             </div>
           </div>

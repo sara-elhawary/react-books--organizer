@@ -19,10 +19,6 @@ class SearchPage extends Component {
 
     BooksAPI.search(userInput).then((result) => {
       this.setState({ result })
-      // console.log(result)
-      // console.log('authors', result[0].authors)
-      // console.log('image', result[0].imageLinks.smallThumbnail)
-      // console.log('title', result[0].title)
     })
   }
   render() {
@@ -52,6 +48,7 @@ class SearchPage extends Component {
                   title={book.title}
                   authors={book.authors}
                   imageURL={book.imageLinks && book.imageLinks.thumbnail}
+                  // bookShelf={}
                   getData={this.getUserSelection}
                 />
               ))

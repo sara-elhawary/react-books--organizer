@@ -11,15 +11,7 @@ class App extends Component {
     read: [],
   }
   handleShelves = (data) => {
-    // console.log('data', data.bookShelf)
-    console.log(data.bookShelf)
-    console.log(data.bookDetails.title)
-    console.log(this.state)
-    // const updatedState = () => {
-    //   for (let shelf in this.state) {
-    //     shelf.filter((book) => book.title !== data.bookDetails.title)
-    //   }
-    // }
+    console.log(data.bookDetails)
     this.setState((prevState) => ({
       [data.bookShelf]: [...prevState[data.bookShelf], data.bookDetails],
     }))
