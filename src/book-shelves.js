@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
+import Book from './book'
 
 import { Link } from 'react-router-dom'
-import BookCategory from './book-category'
 
 class BookShelves extends Component {
   updateShelves = (data) => {
@@ -11,27 +11,70 @@ class BookShelves extends Component {
     const { books } = this.props
     return (
       <div>
+        {/* {JSON.stringify(books, null, 2)} */}
+
         <div className="list-books-title">
           <h1>
             Books' Organizer<span className="title-span">React Project</span>
           </h1>
         </div>
         <div className="list-books-content">
-          <BookCategory
-            title="Currently Reading"
-            books={books.currentlyReading}
-            changeBooks={this.updateShelves}
-          />
-          <BookCategory
-            title="Want to Read"
-            books={books.wantToRead}
-            changeBooks={this.updateShelves}
-          />
-          <BookCategory
-            title="Read"
-            books={books.read}
-            changeBooks={this.updateShelves}
-          />
+          <div className="bookshelf">
+            <h2 className="bookshelf-title">Currently Reading</h2>
+            <div className="bookshelf-books">
+              <ol className="books-grid">
+                {books.length > 0 &&
+                  books
+                    .filter((book) => book.shelf === 'currentlyReading')
+                    .map((book) => (
+                      <li key={book.id}>
+                        <Book
+                          {...book}
+                          imageURL={
+                            book.imageLinks && book.imageLinks.thumbnail
+                          }
+                        />
+                      </li>
+                    ))}
+              </ol>
+            </div>
+          </div>
+          <div className="bookshelf">
+            <h2 className="bookshelf-title">Want to Read</h2>
+            <div className="bookshelf-books">
+              <ol className="books-grid">
+                {books.length > 0 &&
+                  books
+                    .filter((book) => book.shelf === 'wantToRead')
+                    .map((book) => (
+                      <li key={book.id}>
+                        <Book {...book} imageURL={book.imageLinks.thumbnail} />
+                      </li>
+                    ))}
+              </ol>
+            </div>
+          </div>
+          <div className="bookshelf">
+            <h2 className="bookshelf-title">Read</h2>
+            <div className="bookshelf-books">
+              <ol className="books-grid">
+                {books.length > 0 &&
+                  books
+                    .filter((book) => book.shelf === 'read')
+                    .map((book) => (
+                      <li key={book.id}>
+                        <Book {...book} imageURL={book.imageLinks.thumbnail} />
+                      </li>
+                    ))}
+                {/* {books.length > 0 &&
+              books.map((book, index) => (
+                <li key={index + book.title}>
+                  <Book {...book} getData={this.getUserSelection} />
+                </li>
+              ))} */}
+              </ol>
+            </div>
+          </div>
         </div>
         <div className="open-search">
           <Link to="/search">

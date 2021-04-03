@@ -23,7 +23,6 @@ class SearchPage extends Component {
   }
   render() {
     const { query, result } = this.state
-    // console.log(this.state.selection)
     return (
       <div className="search-books">
         <div className="search-books-bar">
@@ -42,13 +41,10 @@ class SearchPage extends Component {
         <div className="search-books-results">
           <ol className="books-grid">
             {result && result.length > 0 ? (
-              result.map((book, index) => (
+              result.map((book) => (
                 <Book
-                  key={`${index}+${book.title}`}
-                  title={book.title}
-                  authors={book.authors}
+                  {...book}
                   imageURL={book.imageLinks && book.imageLinks.thumbnail}
-                  // bookShelf={}
                   getData={this.getUserSelection}
                 />
               ))
