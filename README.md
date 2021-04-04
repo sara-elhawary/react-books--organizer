@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/df260c4e-804b-42e8-83dd-fc5e75e4e1ad/deploy-status)](https://app.netlify.com/sites/books-organizer/deploys)
+
 # MyReads Project
 
 This is 2nd Project of FWD Egypt initiative with udacity ,using React
@@ -17,8 +19,8 @@ To get started developing right away:
 Clone the repository, change directories, and use NPM to install the dependencies.
 
 ```bash
-$ git clone https://github.com/sara-elhawary/reactnd-project-myreads-starter
-$ cd reactnd-project-myreads
+$ git clone https://github.com/sara-elhawary/react-books--organizer.git
+$ cd react-books--organizer
 $ npm install
 ```
 
