@@ -7,24 +7,18 @@ import * as BooksAPI from './BooksAPI'
 
 class App extends Component {
   state = {
-    // currentlyReading: [],
-    // wantToRead: [],
-    // read: [],
     books: [],
   }
   componentDidMount() {
     BooksAPI.getAll().then((books) => {
-      // console.log(data)
       this.setState({ books })
     })
   }
 
-  //api get all
-  handleShelves = (data) => {
-    // console.log(data.bookShelf, data.bookDetails, data.fromShelf)
-    this.setState((prevState) => ({
-      [data.bookShelf]: [...prevState[data.bookShelf], data.bookDetails],
-    }))
+  handleShelves = () => {
+    BooksAPI.getAll().then((books) => {
+      this.setState({ books })
+    })
   }
   render() {
     // console.log('state', this.state)
@@ -43,7 +37,12 @@ class App extends Component {
         <Route
           exact
           path="/search"
-          render={() => <SearchPage stackBooks={this.handleShelves} />}
+          render={() => (
+            <SearchPage
+              addedBooks={this.state.books}
+              stackBooks={this.handleShelves}
+            />
+          )}
         />
       </div>
     )

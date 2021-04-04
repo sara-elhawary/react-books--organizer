@@ -9,7 +9,6 @@ class SearchPage extends Component {
     result: [],
   }
   getUserSelection = (details) => {
-    // console.log('details', details)
     this.props.stackBooks(details)
   }
   updateQuery = (userInput) => {
@@ -23,6 +22,7 @@ class SearchPage extends Component {
   }
   render() {
     const { query, result } = this.state
+    const { addedBooks } = this.props
     return (
       <div className="search-books">
         <div className="search-books-bar">
@@ -43,6 +43,13 @@ class SearchPage extends Component {
             {result && result.length > 0 ? (
               result.map((book) => (
                 <Book
+                  key={book.id}
+                  {...addedBooks.map((addedBook) => {
+                    if (book.id === addedBook.id) {
+                      book.shelf = addedBook.shelf
+                    }
+                    return addedBook
+                  })}
                   {...book}
                   imageURL={book.imageLinks && book.imageLinks.thumbnail}
                   getData={this.getUserSelection}

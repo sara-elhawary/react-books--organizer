@@ -7,6 +7,7 @@ class BookShelves extends Component {
   updateShelves = (data) => {
     this.props.stackBooks(data)
   }
+
   render() {
     const { books } = this.props
     return (
@@ -33,6 +34,7 @@ class BookShelves extends Component {
                           imageURL={
                             book.imageLinks && book.imageLinks.thumbnail
                           }
+                          getData={this.updateShelves}
                         />
                       </li>
                     ))}
@@ -48,7 +50,11 @@ class BookShelves extends Component {
                     .filter((book) => book.shelf === 'wantToRead')
                     .map((book) => (
                       <li key={book.id}>
-                        <Book {...book} imageURL={book.imageLinks.thumbnail} />
+                        <Book
+                          {...book}
+                          imageURL={book.imageLinks.thumbnail}
+                          getData={this.updateShelves}
+                        />
                       </li>
                     ))}
               </ol>
@@ -63,7 +69,11 @@ class BookShelves extends Component {
                     .filter((book) => book.shelf === 'read')
                     .map((book) => (
                       <li key={book.id}>
-                        <Book {...book} imageURL={book.imageLinks.thumbnail} />
+                        <Book
+                          {...book}
+                          imageURL={book.imageLinks.thumbnail}
+                          getData={this.updateShelves}
+                        />
                       </li>
                     ))}
                 {/* {books.length > 0 &&
