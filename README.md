@@ -1,7 +1,7 @@
 # MyReads Project
 
 This is 2nd Project of FWD Egypt initiative with udacity ,using React
-![Website ScreenShot of Homepage](./public/home-page.jpeg)
+![Website ScreenShot of Homepage](./public/readme-imgs/home-page.jpeg)
 
 # Getting Started:
 
