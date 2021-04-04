@@ -76,12 +76,6 @@ class BookShelves extends Component {
                         />
                       </li>
                     ))}
-                {/* {books.length > 0 &&
-              books.map((book, index) => (
-                <li key={index + book.title}>
-                  <Book {...book} getData={this.getUserSelection} />
-                </li>
-              ))} */}
               </ol>
             </div>
           </div>
